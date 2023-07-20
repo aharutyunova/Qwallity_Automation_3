@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 from Helpers.helpers import GeneralHelpers
 import time
+
+
 favorite_ads = (By.XPATH, "//div[text()='Favorite Ads']")
 my_account_icon = (By.XPATH, '//*[@id="ma"]')
 
