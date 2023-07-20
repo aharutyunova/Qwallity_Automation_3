@@ -1,10 +1,11 @@
 from Helpers.driver_lib import Driver_Lib  
+from Helpers import helpers
 from Helpers.helpers import GeneralHelpers
 from Pages.header import HeaderPage
 from Pages.result import ResultPage
-from Helpers import environment
 from Helpers.test_logger import logger
 from TestData import testdata
+from Helpers import environment
 from Helpers.environment import config_data
 
 """
@@ -25,14 +26,14 @@ def test_search_success_case(driver):
 
         
     headerpage.saerch_data(testdata.search_data)
-    headerpage.select_usd_currency()
+    resultpage.select_usd_currency()
     resultpage.set_price(testdata.price_min, testdata.price_max)
-    headerpage.price_list = resultpage.check_result()
+    price_list = resultpage.check_result()
         
-    for price in headerpage.price_list:
+    for price in price_list:
         assert 0 <= price <= testdata.price_max, logger("Result is incorrect", error=True)
         
-    logger("Result is correct!")
+    logger("test_search_success_case() is passed!")
 
 
 if __name__ == '__main__':

@@ -1,6 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from test_logger import logger
+from Helpers.test_logger import logger
 from selenium.webdriver.common.action_chains import ActionChains
 
 
@@ -20,7 +20,6 @@ class GeneralHelpers:
     def switch_to_main_window(self):
         self.driver.switch_to.window(self.driver.window_handles[0])
 
-        
 
     def find_and_click(self, loc, timeout=60):
         elem = self.find(loc, timeout)
