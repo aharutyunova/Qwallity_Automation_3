@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from Helpers.helpers import GeneralHelpers
+from Qwallity_Automation_3.Helpers.helpers import GeneralHelpers
 from selenium.webdriver.common.keys import Keys
-from TestData import testdata
+from Qwallity_Automation_3.TestData import testdata
 import  time
 
 lbl_account = (By.XPATH, "//*[@id='ma']")

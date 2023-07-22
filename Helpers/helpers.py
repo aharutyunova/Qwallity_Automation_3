@@ -1,6 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from Helpers.test_logger import logger
+from Qwallity_Automation_3.Helpers.test_logger import logger
 from selenium.webdriver.common.action_chains import ActionChains
 
 

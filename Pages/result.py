@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Helpers.helpers import GeneralHelpers
+from Qwallity_Automation_3.Helpers.helpers import GeneralHelpers
 import random
 
 result_container = (By.XPATH, "/html/body/div[3]/div[3]/div[2]")

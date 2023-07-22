@@ -1,13 +1,13 @@
 import time
 
-from Helpers.helpers import GeneralHelpers
-from Pages import header
-from Pages.header import HeaderPage
-from Pages.login import LoginPage
-from Helpers import environment
-from Pages.result import ResultPage
-from Pages.favorite import Favorite
-from Tests.some_helpers import TESTHelpers
+from Qwallity_Automation_3.Helpers.helpers import GeneralHelpers
+from Qwallity_Automation_3.Pages import header
+from Qwallity_Automation_3.Pages.header import HeaderPage
+from Qwallity_Automation_3.Pages.login import LoginPage
+from Qwallity_Automation_3.Helpers import environment
+from Qwallity_Automation_3.Pages.result import ResultPage
+from Qwallity_Automation_3.Pages.favorite import Favorite
+from Qwallity_Automation_3.Tests.some_helpers import TESTHelpers
 
 """
 
@@ -29,6 +29,6 @@ def test_favorite(driver):
     helper.find_and_click(header.icon_lang)
     favorite_item = resultpage.add_to_favorites()
 
-
+# test_favorite()
 
 

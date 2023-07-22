@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from Helpers.test_logger import logger
+from Qwallity_Automation_3.Helpers.test_logger import logger
 
-email_field = (By.ID, "_idyour_email")
+email_field = (By.ID, "_idphone_number_or_email") #corrected id xpath
 pass_field = (By.ID, "_idpassword")
 btn_login = (By.ID, "action__form_action0")
 lbl_account = (By.XPATH, "//*[@id='ma']")
