@@ -7,10 +7,10 @@ favorite_ads = (By.XPATH, "//div[text()='Favorite Ads']")
 my_account_icon = (By.XPATH, '//*[@id="ma"]')
 
 
-
 class Favorite(GeneralHelpers):
     favorite_items = (By.XPATH, "//div[@id='contentr']//a")
-    favorite_items_remove = (By.XPATH, '//div[@original-title="Remove from favorites"]')
+    favorite_items_remove = (By.XPATH,
+                             '//div[@original-title="Remove from favorites"]')
 
     def check_favorite_ads(self):
         self.hover_elem(self.find(my_account_icon))

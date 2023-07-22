@@ -16,10 +16,9 @@ class GeneralHelpers:
     def switch_to_window(self, i=1):
         self.driver.switch_to.window(self.driver.window_handles[i])
         self.driver.maximize_window()
-    
+
     def switch_to_main_window(self):
         self.driver.switch_to.window(self.driver.window_handles[0])
-
 
     def find_and_click(self, loc, timeout=60):
         elem = self.find(loc, timeout)
@@ -31,7 +30,8 @@ class GeneralHelpers:
         logger(f"Send '{inp_text}' to {loc[1]}")
         elem.send_keys(inp_text)
 
-    def find(self, loc, timeout=20, should_exist=True, get_text="", get_attribute=""):                         
+    def find(self, loc, timeout=60, should_exist=True, get_text="",
+             get_attribute=""):
         logger(f"Search element '{loc[1]}'")
         try:
             elem = WebDriverWait(self.driver, timeout).until(
@@ -52,7 +52,9 @@ class GeneralHelpers:
     def find_all(self, loc, timeout=10):
         logger(f"Search elements '{loc[1]}'")
         try:
-            elements = WebDriverWait(self.driver, timeout).until(expected_conditions.visibility_of_all_elements_located(loc), message=f"Elements '{loc}' not found!")
+            elements = WebDriverWait(self.driver, timeout).until(
+                expected_conditions.visibility_of_all_elements_located(loc),
+                message=f"Elements '{loc}' not found!")
         except Exception as e:
             logger(e)
             return False
@@ -66,8 +68,6 @@ class GeneralHelpers:
         elif not_page:
             WebDriverWait(self.driver, timeout).until_not(
                 expected_conditions.url_contains(not_page))
-
-
 
     def retrn_url(self):
         return str(self.driver.current_url)

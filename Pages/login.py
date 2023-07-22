@@ -1,13 +1,13 @@
 from selenium.webdriver.common.by import By
 from Helpers.test_logger import logger
+from Helpers.helpers import GeneralHelpers
+from Helpers.environment import config_data
 
 email_field = (By.ID, "_idyour_email")
 pass_field = (By.ID, "_idpassword")
 btn_login = (By.ID, "action__form_action0")
 lbl_account = (By.XPATH, "//*[@id='ma']")
 
-from Helpers.helpers import GeneralHelpers
-from Helpers.environment import config_data
 
 class LoginPage(GeneralHelpers):
 
