@@ -1,3 +1,4 @@
+"""Imports: selenium.webdriver.common.by, Helpers.helpers, random."""
 from selenium.webdriver.common.by import By
 from Helpers.helpers import GeneralHelpers
 import random
@@ -12,29 +13,32 @@ price_blue_button = (By.ID, "gobtn")
 result_item = (By.XPATH, "//*[@id='hcontent']/div/div/div[3]/div/a[1]/img")
 result_price = (By.XPATH, "//div[@id='contentr']//a//div[@class='p']")
 contentr_items = (By.XPATH, "//div[@id='contentr']//a")
-
-
 add_to_favorite = (By.XPATH, "//div[@id='sstar']//div")
 login_require_popup = (By.XPATH, "//a[text()='Login to List.am']")
 
 class ResultPage(GeneralHelpers):
+    """Subclass of GeneralHelpers for result page actions."""
 
     def select_usd_currency(self):
+        """Clicks on the USD currency option."""
         self.find_and_click(ddl_currency)
         self.find_and_click(usd_price)
         
     def set_price(self, price_min, price_max):
+        """Set the price range with the provided minimum and maximum values and clicks the blue button."""
         self.find_and_send_keys(from_price, price_min)
         self.find_and_send_keys(to_price, price_max)
         self.find_and_click(price_blue_button)
     
     def check_result(self):
+        """Get the price list from the results and returns the list of numbers."""
         elements = self.find_all(result_price)
         price_list = [el.text for el in elements]
         price_list_number = [int(el.split('$')[1].split(' ')[0]) for el in price_list]
         return price_list_number      
 
     def add_to_favorites(self):
+        """Add a random item to favorites and checks for a login requirement popup."""
         i =random.randint(0, 5)
         item = self.find(result_item)
         item.click()
@@ -42,7 +46,3 @@ class ResultPage(GeneralHelpers):
         self.wait_for_page('item')
         self.find_and_click(add_to_favorite)
         assert self.find(login_require_popup)
-   
-
-
-

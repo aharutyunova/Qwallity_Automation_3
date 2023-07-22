@@ -1,3 +1,4 @@
+"""Test data for search functionality."""
 search_data = "house"
 currency = "$ (USD)"
 price_min = 0

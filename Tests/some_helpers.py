@@ -1,20 +1,19 @@
+"""Imports: WebDriverWait, environment, logger, ActionChains, HeaderPage, ResultPage, testdata."""
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from werkzeug.debug.repr import helper
-
 from Helpers import environment
-from Helpers.helpers import GeneralHelpers
 from Helpers.test_logger import logger
 from selenium.webdriver.common.action_chains import ActionChains
 from Pages.header import HeaderPage
-from Pages.login import LoginPage
 from Pages.result import ResultPage
 from TestData import testdata
 
-class TESTHelpers(ResultPage, LoginPage, HeaderPage):
+class TESTHelpers(ResultPage, HeaderPage):
+    """TESTHelpers class: Inherits from ResultPage and HeaderPage classes.""" 
+     
     price_list = None
 
     def test_1_search(self, driver):
+        """Performs a search test with the given driver instance."""
         resultpage = ResultPage(driver)
         headerpage = HeaderPage(driver)
         self.go_to_page(environment.config_data["url"])
@@ -30,12 +29,15 @@ class TESTHelpers(ResultPage, LoginPage, HeaderPage):
         return self
 
     def change_to_and_click(self):
+        """Change the language to English and clicks on 'My Account'."""
         self.change_english()
         self.click_myaccount()
 
     def login_page(self):
+        """Navigate to the login page."""
         self.login()
 
     def enter_logo_and_menu_tab(self):
+        """Click on the logo and the menu tab."""
         self.click_on_logo()
         self.click_menu_tab()
