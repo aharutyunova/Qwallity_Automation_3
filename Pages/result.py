@@ -25,7 +25,9 @@ class ResultPage(GeneralHelpers):
     def set_price(self, price_min, price_max):
         self.find_and_send_keys(from_price, price_min)
         self.find_and_send_keys(to_price, price_max)
-        self.find_and_click(price_blue_button, 100)
+
+    def do_search(self):
+        self.find_and_click(price_blue_button)
 
     def check_result(self):
         elements = self.find_all(result_price)

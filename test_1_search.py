@@ -19,10 +19,10 @@ def test_search_success_case(driver):
     headerpage.search_data(testdata.search_data)
     resultpage.select_usd_currency()
     resultpage.set_price(testdata.price_min, testdata.price_max)
+    resultpage.do_search()
     price_list = resultpage.check_result()
 
     for price in price_list:
         assert 0 <= price <= testdata.price_max, logger("Result is incorrect",
                                                         error=True)
-
     logger("test_search_success_case() is passed!")

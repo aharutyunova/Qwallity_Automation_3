@@ -30,7 +30,7 @@ class GeneralHelpers:
         logger(f"Send '{inp_text}' to {loc[1]}")
         elem.send_keys(inp_text)
 
-    def find(self, loc, timeout=60, should_exist=True, get_text="",
+    def find(self, loc, timeout=20, should_exist=True, get_text="",
              get_attribute=""):
         logger(f"Search element '{loc[1]}'")
         try:
