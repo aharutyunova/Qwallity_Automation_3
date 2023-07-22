@@ -20,8 +20,7 @@ def test_search(driver):
     result.test_1_search(driver)
     
 
-if __name__ == "__main__":
-    test_search()
+
 
 
 

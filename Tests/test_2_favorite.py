@@ -29,6 +29,5 @@ def test_favorite(driver):
     helper.find_and_click(header.icon_lang)
     favorite_item = resultpage.add_to_favorites()
 
-# test_favorite()
 
 
