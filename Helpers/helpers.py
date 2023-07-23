@@ -59,7 +59,7 @@ class GeneralHelpers:
         logger(f"Click on {loc[1]}")
         elem.click()
 
-    def find_elem_text(self,loc,timeout=70):
+    def find_elem_text(self,loc,timeout=70):  #added new function to get element text
         element = self.find(loc,timeout=timeout)
         return element.text
 

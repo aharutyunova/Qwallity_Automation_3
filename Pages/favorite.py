@@ -7,8 +7,7 @@ favorite_ads = (By.XPATH, "//div[text()='Favorite Ads']")
 my_account_icon = (By.XPATH, '//*[@id="ma"]')
 login_require_popup = (By.XPATH, "//a[text()='Login to List.am']")
 add_to_favorite = (By.XPATH, "//div[@id='sstar']//div")
-result_item = (By.XPATH, "//*[@id='hcontent']/div/div/div[3]/div/a[1]/img")
-
+result_item = (By.XPATH, "//div[@class='c c1']//a[1]")  #corrected xpath
 
 class Favorite(GeneralHelpers):
     favorite_items = (By.XPATH, "//div[@id='contentr']//a")
@@ -21,7 +20,7 @@ class Favorite(GeneralHelpers):
         self.find_and_click(favorite_ads)
 
     def add_to_favorites(self):
-         #changed this function from result page to 
+        #changed this function from result page to 
         #here as this is function for add item to favorite test case
         random_index =random.randint(0, 5) #the variable name "i" changed more readable one 
         item = self.find(result_item)
