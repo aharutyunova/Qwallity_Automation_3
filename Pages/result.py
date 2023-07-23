@@ -10,7 +10,7 @@ favorite_items = (By.XPATH, "//div[@id='contentr']//a")
 to_price = (By.ID, "idprice2")
 price_blue_button = (By.ID, "gobtn")
 result_item = (By.XPATH, "//*[@id='hcontent']/div/div/div[3]/div/a[1]/img")
-result_price = (By.XPATH, "//div[@id='contentr']//a//div[@class='p']")
+result_price = (By.XPATH, "//div[@id='contentr']//div[@class='p']")
 contentr_items = (By.XPATH, "//div[@id='contentr']//a")
 
 
