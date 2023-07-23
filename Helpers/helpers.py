@@ -1,5 +1,5 @@
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support import expected_conditions as EC #shorten to use like this in function
 from Qwallity_Automation_3.Helpers.test_logger import logger
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -19,24 +19,16 @@ class GeneralHelpers:
     
     def switch_to_main_window(self):
         self.driver.switch_to.window(self.driver.window_handles[0])
-
-        
-
-    def find_and_click(self, loc, timeout=60):
-        elem = self.find(loc, timeout)
-        logger(f"Click on {loc[1]}")
-        elem.click()
-
-    def find_and_send_keys(self, loc, inp_text, timeout=60):
-        elem = self.find(loc, timeout)
-        logger(f"Send '{inp_text}' to {loc[1]}")
-        elem.send_keys(inp_text)
-
-    def find(self, loc, timeout=20, should_exist=True, get_text="", get_attribute=""):                         
+    
+    
+    def find(self, loc, timeout=20, should_exist=True, get_text="", get_attribute=""):       
+             #changed sequence the functions of the page
+             # firstly should be find, find_all functions then 
+             # find_click, Find_send_keys             
         logger(f"Search element '{loc[1]}'")
         try:
             elem = WebDriverWait(self.driver, timeout).until(
-                expected_conditions.visibility_of_element_located(loc),
+                EC.visibility_of_element_located(loc),
                 message=f"Element '{loc}' not found!")
         except Exception as e:
             logger(e)
@@ -53,20 +45,37 @@ class GeneralHelpers:
     def find_all(self, loc, timeout=10):
         logger(f"Search elements '{loc[1]}'")
         try:
-            elements = WebDriverWait(self.driver, timeout).until(expected_conditions.visibility_of_all_elements_located(loc), message=f"Elements '{loc}' not found!")
+            elements = WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_all_elements_located(loc), message=f"Elements '{loc}' not found!")
         except Exception as e:
             logger(e)
             return False
         logger(f"Found: {len(elements)}")
         return elements
+        
+
+    def find_and_click(self, loc, timeout=60):
+        elem = self.find(loc, timeout)
+        logger(f"Click on {loc[1]}")
+        elem.click()
+
+    def find_elem_text(self,loc,timeout=70):
+        element = self.find(loc,timeout=timeout)
+        return element.text
+
+    def find_and_send_keys(self, loc, inp_text, timeout=60):
+        elem = self.find(loc, timeout)
+        logger(f"Send '{inp_text}' to {loc[1]}")
+        elem.send_keys(inp_text)
+
 
     def wait_for_page(self, page="", not_page="", timeout=10):
         if page:
             WebDriverWait(self.driver, timeout).until(
-                expected_conditions.url_contains(page))
+                EC.url_contains(page))
         elif not_page:
             WebDriverWait(self.driver, timeout).until_not(
-                expected_conditions.url_contains(not_page))
+                EC.url_contains(not_page))
 
 
 
