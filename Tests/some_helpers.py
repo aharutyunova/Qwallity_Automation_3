@@ -1,41 +1,40 @@
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from werkzeug.debug.repr import helper
-
-from Helpers import environment
+from selenium.webdriver.common.by import By
 from Helpers.helpers import GeneralHelpers
-from Helpers.test_logger import logger
-from selenium.webdriver.common.action_chains import ActionChains
 from Pages.header import HeaderPage
 from Pages.login import LoginPage
 from Pages.result import ResultPage
 from TestData import testdata
 
-class TESTHelpers(ResultPage, LoginPage, HeaderPage):
-    price_list = None
 
-    def test_1_search(self, driver):
-        resultpage = ResultPage(driver)
-        headerpage = HeaderPage(driver)
-        self.go_to_page(environment.config_data["url"])
-        self.change_english()
-        headerpage.saerch_data(testdata.search_data)
-        self.select_usd_currency()
-        resultpage.set_price(testdata.price_min, testdata.price_max)
-        self.price_list = resultpage.check_result()
+class TESTHelpers:
+    def __init__(self, driver):
+        self.driver = driver
+        self.general_helpers = GeneralHelpers(driver)
+        self.header_page = HeaderPage(driver)
+        self.login_page = LoginPage(driver)
+        self.result_page = ResultPage(driver)
+        self.price_list = None
+
+    def test_1_search(self):
+        self.general_helpers.go_to_page(environment.config_data["url"])
+        self.header_page.change_english()
+        self.header_page.saerch_data(testdata.search_data)
+        self.header_page.select_usd_currency()
+        self.result_page.set_price(testdata.price_min, testdata.price_max)
+        self.price_list = self.result_page.check_result()
+
         for price in self.price_list:
-            assert 0 <= price <= 50, logger("Result is incorrect", error=True)
+            assert 0 <= price <= 50, "Result is incorrect"
+
         logger("Result is correct!")
 
-        return self
-
     def change_to_and_click(self):
-        self.change_english()
-        self.click_myaccount()
+        self.header_page.change_english()
+        self.header_page.click_myaccount()
 
     def login_page(self):
-        self.login()
+        self.login_page.login()
 
     def enter_logo_and_menu_tab(self):
-        self.click_on_logo()
-        self.click_menu_tab()
+        self.header_page.click_on_logo()
+        self.header_page.click_menu_tab()

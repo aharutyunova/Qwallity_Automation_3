@@ -8,13 +8,11 @@ def driver():
     yield driver
     driver.quit()
 
-
-
-
-
 @pytest.fixture
-def logger(msg="", error=False):
-    if error:
-        logging.error(msg)
-    else:
-        logging.info(msg)
+def logger_fixture():
+    def log(msg="", error=False):
+        if error:
+            logging.error(msg)
+        else:
+            logging.info(msg)
+    return log
