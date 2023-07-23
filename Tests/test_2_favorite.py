@@ -1,24 +1,11 @@
-import time
-
 from Helpers.helpers import GeneralHelpers
-from Pages import header
 from Pages.header import HeaderPage
-from Pages.login import LoginPage
-from Helpers import environment
-from Pages.result import ResultPage
-from Pages.favorite import Favorite
-from Tests.some_helpers import TESTHelpers
 
-"""
-
-1. Navigate to list.am
-2. Try add random item as favorite
-3. System show popup for required login
-
-"""
 
 def test_favorite(driver):
     helper = GeneralHelpers(driver)
+    headerpage = HeaderPage(driver)
+    print(helper.find(headerpage.logo))
     headerpage = HeaderPage(driver)
     resultpage = ResultPage(driver)
     test_helper = TESTHelpers(driver)
@@ -30,5 +17,4 @@ def test_favorite(driver):
     favorite_item = resultpage.add_to_favorites()
 
 
-
-
+test_favorite()

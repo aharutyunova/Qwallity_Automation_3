@@ -13,15 +13,9 @@ from Tests.some_helpers import TESTHelpers
 4. Click on blue icon
 5. Check that result's prices are in filtered range
 """
+test_1 = GeneralHelpers()
+test_1.go_to_page()
+test_1.find_and_send_keys()
+test_1.find_and_click()
 
-
-def test_search(driver):
-    result=TESTHelpers(driver)
-    result.test_1_search(driver)
-    
-
-
-
-
-
-
+test

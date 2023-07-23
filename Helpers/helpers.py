@@ -1,78 +1,89 @@
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from Helpers.test_logger import logger
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
+from selenium import webdriver
+from Helpers.test_logger import logger
 
 
 class GeneralHelpers:
-    def __init__(self, driver):
-        self.driver = driver
+    def __init__(self):
+        self.driver = webdriver.Chrome()
 
     def go_to_page(self, url):
         logger(f"Navigate to {url}")
         self.driver.get(url)
         self.driver.maximize_window()
 
-    def switch_to_window(self, i=1):
-        self.driver.switch_to.window(self.driver.window_handles[i])
-        self.driver.maximize_window()
-    
+    def switch_to_window(self, window_index=1):
+        if window_index < len(self.driver.window_handles):
+            self.driver.switch_to.window(self.driver.window_handles[window_index])
+            self.driver.maximize_window()
+        else:
+            raise IndexError("Window index out of range.")
+
     def switch_to_main_window(self):
         self.driver.switch_to.window(self.driver.window_handles[0])
 
-        
+    def find_and_click(self, locator, timeout=60):
+        element = self.find(locator, timeout)
+        logger(f"Click on {locator[1]}")
+        element.click()
 
-    def find_and_click(self, loc, timeout=60):
-        elem = self.find(loc, timeout)
-        logger(f"Click on {loc[1]}")
-        elem.click()
+    def find_and_send_keys(self, locator, input_text, timeout=60):
+        element = self.find(locator, timeout)
+        logger(f"Send '{input_text}' to {locator[1]}")
+        element.send_keys(input_text)
 
-    def find_and_send_keys(self, loc, inp_text, timeout=60):
-        elem = self.find(loc, timeout)
-        logger(f"Send '{inp_text}' to {loc[1]}")
-        elem.send_keys(inp_text)
-
-    def find(self, loc, timeout=20, should_exist=True, get_text="", get_attribute=""):                         
-        logger(f"Search element '{loc[1]}'")
+    def find(self, locator, timeout=20, should_exist=True, get_text="", get_attribute=""):
+        logger(f"Search element '{locator[1]}'")
         try:
             elem = WebDriverWait(self.driver, timeout).until(
-                expected_conditions.visibility_of_element_located(loc),
-                message=f"Element '{loc}' not found!")
-        except Exception as e:
-            logger(e)
-            if should_exist:
-                raise Exception(e)
-            return False
-        if get_text:
-            logger(f"Element text: {elem.text}")
-            return elem.text
-        elif get_attribute:
-            return elem.get_attribute(get_attribute)
-        return elem
+                EC.visibility_of_element_located(locator),
+                message=f"Element '{locator}' not found!"
+            )
 
-    def find_all(self, loc, timeout=10):
-        logger(f"Search elements '{loc[1]}'")
-        try:
-            elements = WebDriverWait(self.driver, timeout).until(expected_conditions.visibility_of_all_elements_located(loc), message=f"Elements '{loc}' not found!")
+            if get_text:
+                logger(f"Element text: {elem.text}")
+                return elem.text
+            elif get_attribute:
+                return elem.get_attribute(get_attribute)
+            else:
+                return elem
         except Exception as e:
-            logger(e)
-            return False
-        logger(f"Found: {len(elements)}")
-        return elements
+            logger(f"Error occurred: {e}")
+            raise
+
+    def find_all(self, locator, timeout=10):
+        logger(f"Search elements '{locator[1]}'")
+        try:
+            elements = WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_all_elements_located(locator),
+                message=f"Elements '{locator}' not found!"
+            )
+            logger(f"Found: {len(elements)}")
+            return elements
+        except Exception as e:
+            logger(f"Error occurred: {e}")
+            raise
 
     def wait_for_page(self, page="", not_page="", timeout=10):
-        if page:
-            WebDriverWait(self.driver, timeout).until(
-                expected_conditions.url_contains(page))
-        elif not_page:
-            WebDriverWait(self.driver, timeout).until_not(
-                expected_conditions.url_contains(not_page))
-
-
+        try:
+            if page:
+                WebDriverWait(self.driver, timeout).until(EC.url_contains(page))
+            elif not_page:
+                WebDriverWait(self.driver, timeout).until_not(EC.url_contains(not_page))
+        except Exception as e:
+            logger(f"Error occurred: {e}")
+            raise
 
     def retrn_url(self):
         return str(self.driver.current_url)
 
-    def hover_elem(self, elem):
-        a = ActionChains(self.driver)
-        a.move_to_element(elem).perform()
+    def hover_element(self, element):
+        action = ActionChains(self.driver)
+        action.move_to_element(element).perform()
+
+    def close_driver(self):
+        self.driver.quit()
+

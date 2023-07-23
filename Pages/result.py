@@ -2,20 +2,17 @@ from selenium.webdriver.common.by import By
 from Helpers.helpers import GeneralHelpers
 import random
 
-result_container = (By.XPATH, "/html/body/div[3]/div[3]/div[2]")
+
 ddl_currency = (By.XPATH, "//*[text()='Currency']//following::div[@class='me']")
 usd_price = (By.XPATH, "//div[text()='$ (USD)']")
 from_price = (By.ID, "idprice1")
-favorite_items = (By.XPATH, "//div[@id='contentr']//a")
 to_price = (By.ID, "idprice2")
 price_blue_button = (By.ID, "gobtn")
-result_item = (By.XPATH, "//*[@id='hcontent']/div/div/div[3]/div/a[1]/img")
+result_item = (By.XPATH, "//*[@id="tp"]/div[2]/a/div/div[1]")
 result_price = (By.XPATH, "//div[@id='contentr']//a//div[@class='p']")
-contentr_items = (By.XPATH, "//div[@id='contentr']//a")
-
-
 add_to_favorite = (By.XPATH, "//div[@id='sstar']//div")
-login_require_popup = (By.XPATH, "//a[text()='Login to List.am']")
+login_require_popup = (By.XPATH, "//*[@id="main"]/div[1]/div[1]")
+
 
 class ResultPage(GeneralHelpers):
 
@@ -43,6 +40,3 @@ class ResultPage(GeneralHelpers):
         self.find_and_click(add_to_favorite)
         assert self.find(login_require_popup)
    
-
-
-
