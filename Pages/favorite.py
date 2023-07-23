@@ -1,23 +1,19 @@
 from selenium.webdriver.common.by import By
 from Helpers.helpers import GeneralHelpers
 import time
-favorite_ads = (By.XPATH, "//div[text()='Favorite Ads']")
-my_account_icon = (By.XPATH, '//*[@id="ma"]')
-
 
 
 class Favorite(GeneralHelpers):
-    favorite_items = (By.XPATH, "//div[@id='contentr']//a")
-    favorite_items_remove = (By.XPATH, '//div[@original-title="Remove from favorites"]')
+    
+    first_item = (By.XPATH, "//*[@id='hcontent']/div/div/div[3]/div/a[1]/img")
+    heart_icon = (By.XPATH, "//div[@class='off']")
+    login_require_popup = (By.XPATH, "//div[contains (text(), 'Please')]")
 
-    def check_favorite_ads(self):
-        self.hover_elem(self.find(my_account_icon))
+    def add_to_favorites(self):
+        self.find_and_click(self.first_item)
         time.sleep(2)
-        self.find_and_click(favorite_ads)
-
-    def clear_favorites(self):
-        f_items = self.find_all(self.favorite_items_remove)
-        if f_items:
-            for f_item in f_items:
-                time.sleep(0.5)
-                f_item.click()
+        self.switch_to_window()
+        time.sleep(2)
+        self.find_and_click(self.heart_icon)
+        popuptext = self.find(self.login_require_popup)
+        return popuptext
