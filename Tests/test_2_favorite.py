@@ -18,3 +18,5 @@ def test_favorite(driver):
 
 
 test_favorite()
+
+# Anna  - where are pages imports? You remove them, so your classes aren't visible from this file
