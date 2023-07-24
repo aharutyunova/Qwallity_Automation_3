@@ -11,7 +11,7 @@ class Favorite(GeneralHelpers):
 
     def check_favorite_ads(self):
         self.hover_elem(self.find(my_account_icon))
-        time.sleep(2)
+        time.sleep(2) # Anna - will be better replace time sleep
         self.find_and_click(favorite_ads)
 
     def clear_favorites(self):
