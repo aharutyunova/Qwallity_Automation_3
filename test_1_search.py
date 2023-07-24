@@ -26,3 +26,5 @@ def test_search_success_case(driver):
         assert 0 <= price <= testdata.price_max, logger("Result is incorrect",
                                                         error=True)
     logger("test_search_success_case() is passed!")
+
+# Test 1 is not stable, pass with debug

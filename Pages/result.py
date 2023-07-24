@@ -44,3 +44,5 @@ class ResultPage(GeneralHelpers):
         self.wait_for_page('item')
         self.find_and_click(add_to_favorite)
         assert self.find(login_require_popup)
+
+# Anna - don't use assert inside the page method. Maybe in other case you will use same method but will need assert other condition/

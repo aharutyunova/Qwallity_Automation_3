@@ -10,3 +10,4 @@ class Driver_Lib:
 
     def quite_driver(self):
         self.driver.quit()
+# Anna - you initialize driver in conftest, so you don't need driver lib

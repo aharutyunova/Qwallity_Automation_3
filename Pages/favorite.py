@@ -6,6 +6,7 @@ import time
 favorite_ads = (By.XPATH, "//div[text()='Favorite Ads']")
 my_account_icon = (By.XPATH, '//*[@id="ma"]')
 
+# Anna - you keep some of locators outise the class, some inside - use same logic for all locators
 
 class Favorite(GeneralHelpers):
     favorite_items = (By.XPATH, "//div[@id='contentr']//a")
@@ -14,7 +15,7 @@ class Favorite(GeneralHelpers):
 
     def check_favorite_ads(self):
         self.hover_elem(self.find(my_account_icon))
-        time.sleep(2)
+        time.sleep(2) # Anna - will be better eplace time sleep with explicite wait
         self.find_and_click(favorite_ads)
 
     def clear_favorites(self):

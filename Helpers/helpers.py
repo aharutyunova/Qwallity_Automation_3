@@ -75,3 +75,5 @@ class GeneralHelpers:
     def hover_elem(self, elem):
         a = ActionChains(self.driver)
         a.move_to_element(elem).perform()
+
+# Anna - variable name -'a' of hover_elem method are nor clear
