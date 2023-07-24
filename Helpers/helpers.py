@@ -8,7 +8,7 @@ from Helpers.test_logger import logger
 
 class GeneralHelpers:
     def __init__(self):
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome() # Anna - you already have driver initialization in conftest. no need initialize it here
 
     def go_to_page(self, url):
         logger(f"Navigate to {url}")
