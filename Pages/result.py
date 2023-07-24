@@ -8,10 +8,10 @@ usd_price = (By.XPATH, "//div[text()='$ (USD)']")
 from_price = (By.ID, "idprice1")
 to_price = (By.ID, "idprice2")
 price_blue_button = (By.ID, "gobtn")
-result_item = (By.XPATH, "//*[@id="tp"]/div[2]/a/div/div[1]")
+result_item = (By.XPATH, "//*[@id="tp"]/div[2]/a/div/div[1]") # Anna - quotes next to tp should be single, if you use double quotes for xpath. Locator also not effective
 result_price = (By.XPATH, "//div[@id='contentr']//a//div[@class='p']")
 add_to_favorite = (By.XPATH, "//div[@id='sstar']//div")
-login_require_popup = (By.XPATH, "//*[@id="main"]/div[1]/div[1]")
+login_require_popup = (By.XPATH, "//*[@id="main"]/div[1]/div[1]") # Anna the same comment for this locator
 
 
 class ResultPage(GeneralHelpers):
