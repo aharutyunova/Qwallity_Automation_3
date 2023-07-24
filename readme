@@ -8,3 +8,17 @@ we are keeping logger, driver should be kept in contest
 
 all environment crenedntails
 
+---
+
+for runing test cases just need use following command
+
+```
+pytest
+```
+
+- fixed both test cases search by criteria and check favorites
+- seperated test cases and functions
+- refactored and cleared redundent codes
+- fixed logging functionality
+- cleared cache files and commited only necessary files  
+
