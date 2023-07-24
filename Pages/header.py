@@ -11,7 +11,7 @@ menu_tab = (By.XPATH, f"//*[@id='menu']//a[text()='{testdata.menu_tab}']")
 logo = (By.XPATH, '//*[@id="l"]')
 
 
-class HeaderPage(GeneralHelpers):
+class HeaderPage(GeneralHelpers): # Anna - you move locators inside the class and leave also outside
     lbl_account = (By.XPATH, "//*[@id='ma']")
     inp_search = (By.ID, "idSearchBox")
     icon_lang = (By.XPATH, "//div[text()='English']")
@@ -22,7 +22,7 @@ class HeaderPage(GeneralHelpers):
         self.find_and_send_keys(inp_search, test_data)
         self.find(inp_search).send_keys(Keys.ENTER)
 
-    def change_english(self):
+    def change_english(self): # Anna - Will be better to rename method to make it more understandable - e.g. change language, or choose language
         self.find_and_click(icon_lang)
 
     def click_menu_tab(self):
