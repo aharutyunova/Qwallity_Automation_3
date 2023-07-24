@@ -35,6 +35,9 @@ class TESTHelpers:
     def login_page(self):
         self.login_page.login()
 
+# Anna - you don't need this some_helpers file. You should keep page methods in pages, tests in test files
+#  This some helpers file is additional
+
     def enter_logo_and_menu_tab(self):
         self.header_page.click_on_logo()
         self.header_page.click_menu_tab()
