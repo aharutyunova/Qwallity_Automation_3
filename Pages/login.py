@@ -1,13 +1,16 @@
 from selenium.webdriver.common.by import By
 from Helpers.test_logger import logger
 
-email_field = (By.ID, "_idyour_email")
+email_field = (By.ID, "_idphone_number_or_email") #corrected id 
 pass_field = (By.ID, "_idpassword")
 btn_login = (By.ID, "action__form_action0")
 lbl_account = (By.XPATH, "//*[@id='ma']")
 
 from Helpers.helpers import GeneralHelpers
 from Helpers.environment import config_data
+
+# Anna - here you have imports then locators then again imports, imports should come at first
+# Also in some pages you have locators inside the class, but here locators outside
 
 class LoginPage(GeneralHelpers):
 

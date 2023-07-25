@@ -27,3 +27,4 @@ class HeaderPage(GeneralHelpers):
         print('logo')
         self.find_and_click(logo)
 
+# Anna - remove unused prints

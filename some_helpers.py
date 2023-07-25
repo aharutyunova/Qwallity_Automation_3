@@ -1,6 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from werkzeug.debug.repr import helper
+
 
 from Helpers import environment
 from Helpers.helpers import GeneralHelpers
@@ -39,3 +39,6 @@ class TESTHelpers(ResultPage, LoginPage, HeaderPage):
     def enter_logo_and_menu_tab(self):
         self.click_on_logo()
         self.click_menu_tab()
+
+# Anna  - you don't need this file, all methods should be or in libs, or in pages, test functions should be inside test files
+# So methods of this file should be distributed by pages and tests
