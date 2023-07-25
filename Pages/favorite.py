@@ -16,4 +16,4 @@ class Favorite(GeneralHelpers):
         time.sleep(2)
         self.find_and_click(self.heart_icon)
         popuptext = self.find(self.login_require_popup)
-        return popuptext
+        return popuptext  # Anna - very good you remove assertion from this method

@@ -8,3 +8,4 @@ config_data_for_second_user_draft = {
     'email': 'qwallityautomation3@gmail.com',
     'password': '13072022'
 }
+# Anna - will be better to remove unused data from env file, and keep environments.py as separate file, not inside Helpers folder

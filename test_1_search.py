@@ -18,3 +18,6 @@ def test_search(driver):
     for price_result in prices_result:
         assert test_data['price_min'] <= price_result <= test_data['price_max'], logging.error("Test is failed")
         logging.info("Test case is successfully passed")       
+    
+
+    # Anna - you should refactor existing test cases inside test folder. Or if you modified them as separate test case, you should delete existing tests inside Tests folder
