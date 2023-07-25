@@ -1,15 +1,15 @@
 import time
 import logging
-from Qwallity_Automation_3.Helpers.helpers import GeneralHelpers
-from Qwallity_Automation_3.Pages import header
-from Qwallity_Automation_3.Pages.header import HeaderPage
-from Qwallity_Automation_3.Pages.login import LoginPage
-from Qwallity_Automation_3.Helpers import environment
-from Qwallity_Automation_3.Pages.result import ResultPage
-from Qwallity_Automation_3.Pages.favorite import Favorite
-from Qwallity_Automation_3.some_helpers import TESTHelpers
-from Qwallity_Automation_3.Helpers.test_logger import logger
-from Qwallity_Automation_3.TestData import testdata
+from Helpers.helpers import GeneralHelpers
+from Pages import header
+from Pages.header import HeaderPage
+from Pages.login import LoginPage
+from Helpers import environment
+from Pages.result import ResultPage
+from Pages.favorite import Favorite
+from some_helpers import TESTHelpers
+from Helpers.test_logger import logger
+from TestData import testdata
 
 """
 

@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from Qwallity_Automation_3.Helpers.helpers import GeneralHelpers
+from Helpers.helpers import GeneralHelpers
 from selenium.webdriver.common.keys import Keys
-from Qwallity_Automation_3.TestData import testdata
+from TestData import testdata
 import  time
 
 lbl_account = (By.XPATH, "//*[@id='ma']")
@@ -27,3 +27,4 @@ class HeaderPage(GeneralHelpers):
         print('logo')
         self.find_and_click(logo)
 
+# Anna - remove unused prints

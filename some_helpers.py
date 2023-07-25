@@ -1,15 +1,15 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from werkzeug.debug.repr import helper
 
-from Qwallity_Automation_3.Helpers import environment
-from Qwallity_Automation_3.Helpers.helpers import GeneralHelpers
-from Qwallity_Automation_3.Helpers.test_logger import logger
+
+from Helpers import environment
+from Helpers.helpers import GeneralHelpers
+from Helpers.test_logger import logger
 from selenium.webdriver.common.action_chains import ActionChains
-from Qwallity_Automation_3.Pages.header import HeaderPage
-from Qwallity_Automation_3.Pages.login import LoginPage
-from Qwallity_Automation_3.Pages.result import ResultPage
-from Qwallity_Automation_3.TestData import testdata
+from Pages.header import HeaderPage
+from Pages.login import LoginPage
+from Pages.result import ResultPage
+from TestData import testdata
 
 class TESTHelpers(ResultPage, LoginPage, HeaderPage):
     price_list = None
@@ -39,3 +39,6 @@ class TESTHelpers(ResultPage, LoginPage, HeaderPage):
     def enter_logo_and_menu_tab(self):
         self.click_on_logo()
         self.click_menu_tab()
+
+# Anna  - you don't need this file, all methods should be or in libs, or in pages, test functions should be inside test files
+# So methods of this file should be distributed by pages and tests

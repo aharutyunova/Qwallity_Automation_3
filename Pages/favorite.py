@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Qwallity_Automation_3.Helpers.helpers import GeneralHelpers
+from Helpers.helpers import GeneralHelpers
 import time
 import random
 
@@ -30,6 +30,8 @@ class Favorite(GeneralHelpers):
         self.find_and_click(add_to_favorite)
         assert self.find(login_require_popup), "Login required pop-up is not found" 
         #added assertion note once test case failed
+
+        # Anna - changes are good, but will be better assert directly in test case not in the page's method
 
     def clear_favorites(self):
         f_items = self.find_all(self.favorite_items_remove)

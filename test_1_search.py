@@ -1,10 +1,10 @@
-from Qwallity_Automation_3.Helpers.helpers import GeneralHelpers
-from Qwallity_Automation_3.Pages.header import HeaderPage
-from Qwallity_Automation_3.Pages.result import ResultPage
-from Qwallity_Automation_3.Helpers import environment
-from Qwallity_Automation_3.Helpers.test_logger import logger
-from Qwallity_Automation_3.TestData import testdata
-from Qwallity_Automation_3.some_helpers import TESTHelpers
+from Helpers.helpers import GeneralHelpers
+from Pages.header import HeaderPage
+from Pages.result import ResultPage
+from Helpers import environment
+from Helpers.test_logger import logger
+from TestData import testdata
+from some_helpers import TESTHelpers
 
 """
 1. Navigate to lits.am
@@ -36,3 +36,5 @@ def test_search(driver):
 
 
 
+
+# Anna -this test case is unstable, pass only with debug mode

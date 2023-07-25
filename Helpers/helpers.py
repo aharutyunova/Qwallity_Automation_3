@@ -1,6 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC #shorten to use like this in function
-from Qwallity_Automation_3.Helpers.test_logger import logger
+from Helpers.test_logger import logger
 from selenium.webdriver.common.action_chains import ActionChains
 
 
@@ -21,7 +21,7 @@ class GeneralHelpers:
         self.driver.switch_to.window(self.driver.window_handles[0])
     
     
-    def find(self, loc, timeout=20, should_exist=True, get_text="", get_attribute=""):       
+    def find(self, loc, timeout=20, should_exist=True, get_text="", get_attribute=""):    #Anna - sequence not important i this case   
              #changed sequence the functions of the page
              # firstly should be find, find_all functions then 
              # find_click, Find_send_keys             
@@ -85,3 +85,5 @@ class GeneralHelpers:
     def hover_elem(self, elem):
         a = ActionChains(self.driver)
         a.move_to_element(elem).perform()
+
+# Anna - variable a is not clear

@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
-from Qwallity_Automation_3.Helpers.helpers import GeneralHelpers
-from Qwallity_Automation_3.TestData import testdata
+from Helpers.helpers import GeneralHelpers
+from TestData import testdata
 
 import random
 
@@ -14,7 +14,7 @@ price_blue_button = (By.XPATH, "//a[@class='btn']//img[@id='gobtn']") #corrected
 contentr_items = (By.XPATH, "//div[@id='contentr']//div[@class='dl']//a")#corrected xpath
 result_price = (By.XPATH, "//div[@id='contentr']//div[@class='p']")
 
-
+# Good that you changes xpaths, again same note about to have locators outside or inside the class
 
 class ResultPage(GeneralHelpers):
 
