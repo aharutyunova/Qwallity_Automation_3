@@ -23,3 +23,5 @@ def logger(msg="", error=False):
     else:
         logging.info(msg)
     yield logger
+
+# Anna - if you use custom logger you could remove logger from conftest
