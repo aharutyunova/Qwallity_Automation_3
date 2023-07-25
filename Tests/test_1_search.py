@@ -17,5 +17,5 @@ def test_search(driver):
 
 
 
-
+# Anna - this test case failed, because can't click on gobtn. Need to investigate and make it more stable
 

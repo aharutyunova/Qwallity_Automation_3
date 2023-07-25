@@ -19,3 +19,5 @@ def test_favorite(driver):
     helper.go_to_page(config_data["url"])
     headerpage.change_english()
     favorite_item = resultpage.add_to_favorites()
+
+# Anna - favorite_item variable is not used

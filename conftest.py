@@ -3,7 +3,7 @@ import pytest
 from selenium import webdriver
 import logging
 
-logging.basicConfig(filename='TestResults/test_run.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='test_run.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 @pytest.fixture
 def driver():
@@ -24,3 +24,4 @@ def logger():
 
     return log_message
 
+# Anna - you have logger as fixture and also in test_logger.py file and also give vconfig in line 6

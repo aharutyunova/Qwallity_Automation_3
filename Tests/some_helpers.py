@@ -41,3 +41,6 @@ class TESTHelpers(ResultPage, HeaderPage):
         """Click on the logo and the menu tab."""
         self.click_on_logo()
         self.click_menu_tab()
+
+# Anna  - you don't need this file, all methods should be or in libs, or in pages, test functions should be inside test files
+# So methods of this file should be distributed by pages and tests

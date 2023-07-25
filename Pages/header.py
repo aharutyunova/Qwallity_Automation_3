@@ -25,6 +25,6 @@ class HeaderPage(GeneralHelpers):
         self.find_and_click(menu_tab)
     def click_on_logo(self):
         """Print 'logo' and clicks on the logo element."""
-        print('logo')
+        print('logo')   # Anna - remove unused prints
         self.find_and_click(logo)
 
