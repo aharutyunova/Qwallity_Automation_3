@@ -9,6 +9,8 @@ lbl_account = (By.XPATH, "//*[@id='ma']")
 from Helpers.helpers import GeneralHelpers
 from Helpers.environment import config_data
 
+# Anna - here you have imports, then locators then again imports. keep imports together at the firts
+
 class LoginPage(GeneralHelpers):
 
     def login(self):

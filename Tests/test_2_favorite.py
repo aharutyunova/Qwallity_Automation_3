@@ -1,23 +1,14 @@
-import time
-
+"""Imports: time, Helpers.helpers, Pages.header, Pages.login, Helpers.environment, Pages.result, Pages.favorite, Tests.some_helpers."""
 from Helpers.helpers import GeneralHelpers
-from Pages import header
 from Pages.header import HeaderPage
 from Pages.login import LoginPage
-from Helpers import environment
+from Helpers.environment import config_data
 from Pages.result import ResultPage
 from Pages.favorite import Favorite
 from Tests.some_helpers import TESTHelpers
 
-"""
-
-1. Navigate to list.am
-2. Try add random item as favorite
-3. System show popup for required login
-
-"""
-
 def test_favorite(driver):
+    """Test case to navigate to list.am, add a random item as favorite, and check for the login popup."""
     helper = GeneralHelpers(driver)
     headerpage = HeaderPage(driver)
     resultpage = ResultPage(driver)
@@ -25,10 +16,8 @@ def test_favorite(driver):
     loginpage = LoginPage(driver)
     favoritepage = Favorite(driver)
 
-    helper.go_to_page("https://www.list.am/")
-    helper.find_and_click(header.icon_lang)
+    helper.go_to_page(config_data["url"])
+    headerpage.change_english()
     favorite_item = resultpage.add_to_favorites()
 
-
-
-
+# Anna - favorite_item variable is not used
